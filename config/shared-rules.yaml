@@ -108,6 +108,54 @@ rules:
 - DOMAIN-SUFFIX,discord.media,选择代理
 - RULE-SET,ADBlock,广告拦截
 - RULE-SET,AdditionalFilter,广告拦截
+# Mainland China AI services take precedence over generic routing rules.
+- DOMAIN-SUFFIX,baichuan-ai.com,中国大陆 AI
+- DOMAIN-SUFFIX,bigmodel.cn,中国大陆 AI
+- DOMAIN-SUFFIX,chatglm.cn,中国大陆 AI
+- DOMAIN-SUFFIX,codegeex.cn,中国大陆 AI
+- DOMAIN-SUFFIX,coze.cn,中国大陆 AI
+- DOMAIN-SUFFIX,deepseek.ai,中国大陆 AI
+- DOMAIN-SUFFIX,deepseek.com,中国大陆 AI
+- DOMAIN-SUFFIX,deepseekapi.com,中国大陆 AI
+- DOMAIN-SUFFIX,doubao.com,中国大陆 AI
+- DOMAIN-SUFFIX,hailuoai.com,中国大陆 AI
+- DOMAIN-SUFFIX,kimi.com,中国大陆 AI
+- DOMAIN-SUFFIX,kling.ai,中国大陆 AI
+- DOMAIN-SUFFIX,klingai.com,中国大陆 AI
+- DOMAIN-SUFFIX,lingyiwanwu.com,中国大陆 AI
+- DOMAIN-SUFFIX,longcat.chat,中国大陆 AI
+- DOMAIN-SUFFIX,minimax.chat,中国大陆 AI
+- DOMAIN-SUFFIX,minimax.io,中国大陆 AI
+- DOMAIN-SUFFIX,minimaxi.com,中国大陆 AI
+- DOMAIN-SUFFIX,modelbest.cn,中国大陆 AI
+- DOMAIN-SUFFIX,modelscope.ai,中国大陆 AI
+- DOMAIN-SUFFIX,modelscope.cn,中国大陆 AI
+- DOMAIN-SUFFIX,moonshot.ai,中国大陆 AI
+- DOMAIN-SUFFIX,moonshot.cn,中国大陆 AI
+- DOMAIN-SUFFIX,qianwenaiapi.com,中国大陆 AI
+- DOMAIN-SUFFIX,qwen.ai,中国大陆 AI
+- DOMAIN-SUFFIX,sensenova.ai,中国大陆 AI
+- DOMAIN-SUFFIX,sensenova.cn,中国大陆 AI
+- DOMAIN-SUFFIX,siliconflow.cn,中国大陆 AI
+- DOMAIN-SUFFIX,siliconflow.com,中国大陆 AI
+- DOMAIN-SUFFIX,skywork.ai,中国大陆 AI
+- DOMAIN-SUFFIX,stepfun.ai,中国大陆 AI
+- DOMAIN-SUFFIX,stepfun.com,中国大陆 AI
+- DOMAIN-SUFFIX,tiangong.cn,中国大陆 AI
+- DOMAIN-SUFFIX,volces.com,中国大陆 AI
+- DOMAIN-SUFFIX,xf-yun.com,中国大陆 AI
+- DOMAIN-SUFFIX,xfyun.cn,中国大陆 AI
+- DOMAIN-SUFFIX,z.ai,中国大陆 AI
+- DOMAIN-SUFFIX,zhipuai.cn,中国大陆 AI
+- DOMAIN,dashscope.aliyuncs.com,中国大陆 AI
+- DOMAIN,ernie.baidu.com,中国大陆 AI
+- DOMAIN,hunyuan.tencentcloudapi.com,中国大陆 AI
+- DOMAIN,jimeng.jianying.com,中国大陆 AI
+- DOMAIN,mimo.mi.com,中国大陆 AI
+- DOMAIN,mimo.xiaomi.com,中国大陆 AI
+- DOMAIN,qianfan.baidubce.com,中国大陆 AI
+- DOMAIN,tongyi.aliyun.com,中国大陆 AI
+- DOMAIN,yiyan.baidu.com,中国大陆 AI
 - RULE-SET,SogouInput,搜狗输入法
 - DOMAIN-SUFFIX,truthsocial.com,Truth Social
 - RULE-SET,StaticResources,静态资源
@@ -1694,9 +1742,6 @@ rules:
 - DOMAIN-SUFFIX,decodet.co,选择代理
 - DOMAIN-SUFFIX,deepmind.com,选择代理
 - DOMAIN-SUFFIX,deepmind.google,AI服务
-- DOMAIN-SUFFIX,deepseek.ai,AI服务
-- DOMAIN-SUFFIX,deepseek.com,AI服务
-- DOMAIN-SUFFIX,deepseekapi.com,AI服务
 - DOMAIN-SUFFIX,deezer.com,选择代理
 - DOMAIN-SUFFIX,definebabe.com,选择代理
 - DOMAIN-SUFFIX,deja.com,选择代理
@@ -6409,6 +6454,11 @@ proxy-groups:
   - 美国节点
   - 手动选择
   - DIRECT
+- name: 中国大陆 AI
+  type: select
+  proxies:
+  - DIRECT
+  - 手动选择
 - name: 加密货币
   icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency_1.png
   type: select
@@ -6732,6 +6782,7 @@ proxy-groups:
   - 手动选择
   - 静态资源
   - AI服务
+  - 中国大陆 AI
   - 加密货币
   - 金融服务
   - 苹果服务
