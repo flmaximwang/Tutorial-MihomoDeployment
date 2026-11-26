@@ -112,6 +112,7 @@ rules:
 - DOMAIN-SUFFIX,baichuan-ai.com,中国大陆 AI
 - DOMAIN-SUFFIX,bigmodel.cn,中国大陆 AI
 - DOMAIN-SUFFIX,chatglm.cn,中国大陆 AI
+- DOMAIN-SUFFIX,cn-beijing.maas.aliyuncs.com,中国大陆 AI
 - DOMAIN-SUFFIX,codegeex.cn,中国大陆 AI
 - DOMAIN-SUFFIX,coze.cn,中国大陆 AI
 - DOMAIN-SUFFIX,deepseek.ai,中国大陆 AI
@@ -119,44 +120,60 @@ rules:
 - DOMAIN-SUFFIX,deepseekapi.com,中国大陆 AI
 - DOMAIN-SUFFIX,doubao.com,中国大陆 AI
 - DOMAIN-SUFFIX,hailuoai.com,中国大陆 AI
-- DOMAIN-SUFFIX,kimi.com,中国大陆 AI
-- DOMAIN-SUFFIX,kling.ai,中国大陆 AI
-- DOMAIN-SUFFIX,klingai.com,中国大陆 AI
 - DOMAIN-SUFFIX,lingyiwanwu.com,中国大陆 AI
 - DOMAIN-SUFFIX,longcat.chat,中国大陆 AI
-- DOMAIN-SUFFIX,minimax.chat,中国大陆 AI
+- DOMAIN-SUFFIX,minimax.cn,中国大陆 AI
 - DOMAIN-SUFFIX,minimaxi.com,中国大陆 AI
 - DOMAIN-SUFFIX,modelbest.cn,中国大陆 AI
-- DOMAIN-SUFFIX,modelscope.ai,中国大陆 AI
 - DOMAIN-SUFFIX,modelscope.cn,中国大陆 AI
 - DOMAIN-SUFFIX,moonshot.cn,中国大陆 AI
+- DOMAIN-SUFFIX,qianwen.com,中国大陆 AI
 - DOMAIN-SUFFIX,qianwenaiapi.com,中国大陆 AI
-- DOMAIN-SUFFIX,qwen.ai,中国大陆 AI
 - DOMAIN-SUFFIX,sensenova.ai,中国大陆 AI
 - DOMAIN-SUFFIX,sensenova.cn,中国大陆 AI
 - DOMAIN-SUFFIX,siliconflow.cn,中国大陆 AI
-- DOMAIN-SUFFIX,skywork.ai,中国大陆 AI
-- DOMAIN-SUFFIX,stepfun.ai,中国大陆 AI
 - DOMAIN-SUFFIX,stepfun.com,中国大陆 AI
 - DOMAIN-SUFFIX,tiangong.cn,中国大陆 AI
 - DOMAIN-SUFFIX,volces.com,中国大陆 AI
 - DOMAIN-SUFFIX,xf-yun.com,中国大陆 AI
 - DOMAIN-SUFFIX,xfyun.cn,中国大陆 AI
 - DOMAIN-SUFFIX,zhipuai.cn,中国大陆 AI
+- DOMAIN,api.kimi.com,中国大陆 AI
+- DOMAIN,api.minimax.chat,中国大陆 AI
 - DOMAIN,dashscope.aliyuncs.com,中国大陆 AI
 - DOMAIN,ernie.baidu.com,中国大陆 AI
 - DOMAIN,hunyuan.tencentcloudapi.com,中国大陆 AI
 - DOMAIN,jimeng.jianying.com,中国大陆 AI
+- DOMAIN,klingai.com,中国大陆 AI
+- DOMAIN,klingai.kuaishou.com,中国大陆 AI
 - DOMAIN,mimo.mi.com,中国大陆 AI
 - DOMAIN,mimo.xiaomi.com,中国大陆 AI
+- DOMAIN,platform.kimi.com,中国大陆 AI
 - DOMAIN,qianfan.baidubce.com,中国大陆 AI
 - DOMAIN,tongyi.aliyun.com,中国大陆 AI
+- DOMAIN,www.klingai.com,中国大陆 AI
 - DOMAIN,yiyan.baidu.com,中国大陆 AI
 # International AI endpoints.
+- DOMAIN-SUFFIX,ap-northeast-1.maas.aliyuncs.com,AI服务
+- DOMAIN-SUFFIX,ap-southeast-1.maas.aliyuncs.com,AI服务
+- DOMAIN-SUFFIX,cn-hongkong.maas.aliyuncs.com,AI服务
+- DOMAIN-SUFFIX,eu-central-1.maas.aliyuncs.com,AI服务
+- DOMAIN-SUFFIX,hailuoai.video,AI服务
+- DOMAIN-SUFFIX,kling.ai,AI服务
+- DOMAIN-SUFFIX,us-east-1.maas.aliyuncs.com,AI服务
 - DOMAIN-SUFFIX,minimax.io,AI服务
+- DOMAIN-SUFFIX,modelscope.ai,AI服务
 - DOMAIN-SUFFIX,moonshot.ai,AI服务
+- DOMAIN-SUFFIX,qwen.ai,AI服务
 - DOMAIN-SUFFIX,siliconflow.com,AI服务
+- DOMAIN-SUFFIX,skywork.ai,AI服务
+- DOMAIN-SUFFIX,stepfun.ai,AI服务
 - DOMAIN-SUFFIX,z.ai,AI服务
+- DOMAIN,api.kimi.ai,AI服务
+- DOMAIN,cn-hongkong.dashscope.aliyuncs.com,AI服务
+- DOMAIN,dashscope-intl.aliyuncs.com,AI服务
+- DOMAIN,dashscope-us.aliyuncs.com,AI服务
+- DOMAIN,platform.kimi.ai,AI服务
 - RULE-SET,SogouInput,搜狗输入法
 - DOMAIN-SUFFIX,truthsocial.com,Truth Social
 - RULE-SET,StaticResources,静态资源
