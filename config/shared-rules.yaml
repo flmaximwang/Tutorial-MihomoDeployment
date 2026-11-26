@@ -6701,7 +6701,7 @@ proxy-groups:
   type: url-test
   use:
   - active
-  filter: 🇸🇬|新加坡|\|SG\|
+  filter: 🇸🇬|新加坡|狮城|\|SG\|
   url: https://cp.cloudflare.com
   interval: 60
   tolerance: 20
@@ -6710,7 +6710,7 @@ proxy-groups:
   type: url-test
   use:
   - active
-  filter: 🇯🇵|日本|\|JP\|
+  filter: 🇯🇵|日本|东京|東京|\|JP\|
   url: https://cp.cloudflare.com
   interval: 60
   tolerance: 20
