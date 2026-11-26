@@ -12,8 +12,8 @@ validation-error.log
 
 # 订阅与节点内容（含真实凭据，绝不入库）
 *.sub.yaml
-doggy.yaml
-renzhe.yaml
+airport.yaml
+data.yaml
 mihomo-managed-rules.yaml
 rule-candidates.csv
 

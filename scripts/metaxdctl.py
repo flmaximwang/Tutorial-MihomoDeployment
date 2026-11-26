@@ -412,7 +412,7 @@ def main() -> int:
 
     p = sub.add_parser('install', help='首次装机')
     p.add_argument('--secret', required=True, help='内核 secret（CLASH_SECRET）')
-    p.add_argument('--airport-name', required=True, help='基础配置显示名，如 狗狗加速')
+    p.add_argument('--airport-name', required=True, help='基础配置显示名，如 机场甲')
     p.add_argument('--airport-url', required=True, help='机场订阅 URL')
     p.add_argument('--airport-interval', default='21600', help='订阅刷新秒数，默认 6 小时')
     p.add_argument('--mihomo-bin', default='/opt/mihomo/mihomo', help='宿主机 mihomo 二进制')
