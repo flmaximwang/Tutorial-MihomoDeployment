@@ -6455,6 +6455,7 @@ proxy-groups:
   - 手动选择
   - DIRECT
 - name: Antigravity
+  icon: https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.102.0/icons/antigravity-color.svg
   type: select
   proxies:
   - 美国节点
