@@ -1,0 +1,11 @@
+[Unit]
+Description=Sync shared Mihomo rules from GitHub into MetaCubeXD
+Documentation=https://github.com/flmaximwang/Tutorial-MihomoDeployment
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+UMask=0077
+TimeoutStartSec=5min
+ExecStart=/usr/bin/python3 {{ROOT}}/scripts/metaxdctl.py sync

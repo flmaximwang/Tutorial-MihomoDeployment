@@ -1,0 +1,23 @@
+# 运行时与本地状态
+__pycache__/
+*.pyc
+runtime.env
+deployment.json
+selections.json
+merge-before-last-sync.yaml
+validation-error.log
+*.bak
+*.bak-*
+*.log
+
+# 订阅与节点内容（含真实凭据，绝不入库）
+*.sub.yaml
+doggy.yaml
+renzhe.yaml
+mihomo-managed-rules.yaml
+rule-candidates.csv
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store

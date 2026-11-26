@@ -1,0 +1,9 @@
+[Unit]
+Description=Check GitHub for updated MetaCubeXD shared rules
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
