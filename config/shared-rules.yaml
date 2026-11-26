@@ -108,7 +108,7 @@ rules:
 - DOMAIN-SUFFIX,discord.media,选择代理
 - RULE-SET,ADBlock,广告拦截
 - RULE-SET,AdditionalFilter,广告拦截
-# Mainland China AI services take precedence over generic routing rules.
+# Mainland China AI endpoints.
 - DOMAIN-SUFFIX,baichuan-ai.com,中国大陆 AI
 - DOMAIN-SUFFIX,bigmodel.cn,中国大陆 AI
 - DOMAIN-SUFFIX,chatglm.cn,中国大陆 AI
@@ -125,19 +125,16 @@ rules:
 - DOMAIN-SUFFIX,lingyiwanwu.com,中国大陆 AI
 - DOMAIN-SUFFIX,longcat.chat,中国大陆 AI
 - DOMAIN-SUFFIX,minimax.chat,中国大陆 AI
-- DOMAIN-SUFFIX,minimax.io,中国大陆 AI
 - DOMAIN-SUFFIX,minimaxi.com,中国大陆 AI
 - DOMAIN-SUFFIX,modelbest.cn,中国大陆 AI
 - DOMAIN-SUFFIX,modelscope.ai,中国大陆 AI
 - DOMAIN-SUFFIX,modelscope.cn,中国大陆 AI
-- DOMAIN-SUFFIX,moonshot.ai,中国大陆 AI
 - DOMAIN-SUFFIX,moonshot.cn,中国大陆 AI
 - DOMAIN-SUFFIX,qianwenaiapi.com,中国大陆 AI
 - DOMAIN-SUFFIX,qwen.ai,中国大陆 AI
 - DOMAIN-SUFFIX,sensenova.ai,中国大陆 AI
 - DOMAIN-SUFFIX,sensenova.cn,中国大陆 AI
 - DOMAIN-SUFFIX,siliconflow.cn,中国大陆 AI
-- DOMAIN-SUFFIX,siliconflow.com,中国大陆 AI
 - DOMAIN-SUFFIX,skywork.ai,中国大陆 AI
 - DOMAIN-SUFFIX,stepfun.ai,中国大陆 AI
 - DOMAIN-SUFFIX,stepfun.com,中国大陆 AI
@@ -145,7 +142,6 @@ rules:
 - DOMAIN-SUFFIX,volces.com,中国大陆 AI
 - DOMAIN-SUFFIX,xf-yun.com,中国大陆 AI
 - DOMAIN-SUFFIX,xfyun.cn,中国大陆 AI
-- DOMAIN-SUFFIX,z.ai,中国大陆 AI
 - DOMAIN-SUFFIX,zhipuai.cn,中国大陆 AI
 - DOMAIN,dashscope.aliyuncs.com,中国大陆 AI
 - DOMAIN,ernie.baidu.com,中国大陆 AI
@@ -156,6 +152,11 @@ rules:
 - DOMAIN,qianfan.baidubce.com,中国大陆 AI
 - DOMAIN,tongyi.aliyun.com,中国大陆 AI
 - DOMAIN,yiyan.baidu.com,中国大陆 AI
+# International AI endpoints.
+- DOMAIN-SUFFIX,minimax.io,AI服务
+- DOMAIN-SUFFIX,moonshot.ai,AI服务
+- DOMAIN-SUFFIX,siliconflow.com,AI服务
+- DOMAIN-SUFFIX,z.ai,AI服务
 - RULE-SET,SogouInput,搜狗输入法
 - DOMAIN-SUFFIX,truthsocial.com,Truth Social
 - RULE-SET,StaticResources,静态资源
