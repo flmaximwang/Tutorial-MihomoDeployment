@@ -43,6 +43,43 @@
 
 `shared-rules.yaml` 的校验规则在 `metaxdctl.py:check_shared()` 里，装机与每次同步都会跑：三键齐全、`rules` 非空且唯一的 `MATCH` 收尾、策略组引用的组必须存在、`filter` 必须能编译成正则、`url-test` 组必须有 `url`、`use` 只能引用本机的 `active` provider。
 
+## 节点是怎么来的
+
+基础配置里没有一条 `proxies`，只有一个 `proxy-providers`：
+
+```yaml
+proxy-providers:
+  active:
+    type: http
+    url: https://机场订阅链接
+    path: ./airport.yaml        # 相对 data/，内核自己写的缓存，不用维护
+    interval: 21600             # 6 小时
+    proxy: DIRECT               # 拉订阅本身不走代理
+    header:
+      User-Agent: [mihomo/1.19.33]
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+```
+
+拉取是**内核自己做的**，不是面板的功能，也不存在外部下载脚本。定时器 `sync` 只写规则与策略组，不碰节点。
+
+- 内核按 `interval` 拉 `url`，把结果落到 `path`。删掉那个文件，下次照样重拉。
+- 从订阅里**只取 `proxies` 段**，机场给的 `rules`、`proxy-groups`、`dns` 全部丢弃——这就是「机场只提供节点」的实现方式。
+- 策略组用 `use: [active]` 引用它，节点换了，组的成员自动跟着换，配置一个字都不用改。
+- 面板 `/providers/proxies` 里 `active` 的 `vehicleType` 是 `HTTP`、`updatedAt` 是最后拉取时间；其余条目是策略组，`vehicleType` 显示 `Compatible`。
+
+不必等 6 小时就能刷新：
+
+```bash
+# 面板里 provider 页面点刷新，或直接调内核 API（path 留空表示按原 URL 重拉）
+curl -X PUT http://127.0.0.1:9090/providers/proxies/active \
+     -H "Authorization: Bearer $CLASH_SECRET"
+```
+
+换机场 = 换这个 `url`（`install --force --airport-url ...`），规则、策略组、节点选择都不受影响。
+
 ## 装机
 
 ```bash
@@ -119,6 +156,7 @@ ExecStart=/usr/bin/python3 {{ROOT}}/scripts/metaxdctl.py sync
 | 规则、规则集、策略组 | GitHub 仓库的 `shared-rules.yaml` | 等定时器，或手动 `sync` |
 | DNS、sniffer、TUN、CORS 等运行时设置 | 本机 `config/merge-base.yaml` | 跑一次 `install --force`，或改 Merge 后重新激活 |
 | 换机场 | `install --force --airport-url ...` | 重装基础配置，Merge 与选择保留 |
+| 立刻刷新节点 | 面板 provider 页，或 `PUT /providers/proxies/active` | 内核重拉订阅，`interval` 只决定自动周期 |
 | 单台机器的节点选择 | 面板 | 立即生效，同步不会覆盖 |
 
 `merge-base.yaml` 与仓库里的 `shared-rules.yaml` 是分层关系：前者是运行时骨架（不含节点、不含规则），后者只覆盖三个阶段。两者用 `|` 合并，所以 `shared-rules.yaml` 里不要出现 `dns`、`tun` 这类键——`check_shared` 会直接拒掉。

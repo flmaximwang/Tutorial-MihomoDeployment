@@ -34,6 +34,29 @@ Merge「自管规则与地区策略」                                          
 - 运行时设置（DNS、TUN、CORS）留在本机的 `merge-base.yaml`，不进仓库：它们与机器的网卡、端口、面板地址绑定。
 - 机场凭据只出现在基础配置里，不进仓库、不进 Merge。
 
+## 节点由内核自己拉
+
+基础配置里唯一与机场有关的东西是一个 `proxy-providers.active`：
+
+```yaml
+proxy-providers:
+  active:
+    type: http
+    url: https://机场订阅链接
+    path: ./airport.yaml
+    interval: 21600
+    proxy: DIRECT
+```
+
+分工落在这里：
+
+- **内核负责拉。** 按 `interval` 自己生成请求、自己写 `path`、自己按 `health-check` 测速。没有外部下载脚本，定时器 `sync` 也不碰它。面板只在 `/providers/proxies` 里显示状态。
+- **只取 `proxies`。** 订阅里的 `rules`、`proxy-groups`、`dns` 全部丢弃。这就是「机场只提供节点」的实现方式，也是为什么不存在「机场规则混进自管规则」这种可能。
+- **组靠引用，不靠复制。** 策略组写 `use: [active]`，节点名换了一轮，组的成员自动跟着换。所以仓库里的 `proxy-groups` 不需要知道任何具体节点名——这是它能跨机器共享的前提。
+- **凭据只在本机。** `url` 里带令牌，所以它只在基础配置里出现；仓库里那份 `shared-rules.yaml` 只引用 provider 的名字 `active`，不含 URL。
+
+这带来一个必须遵守的约束：**仓库定义的组筛选方式，要能匹配所有机器上 provider 给的节点名。** 某台机器自己留着旧组定义、只更新 provider，面板看起来正常，实际筛选已经和仓库对不上。这也是「本地差异」在这套架构里没有位置的原因。
+
 `check_shared()` 用白名单而不是黑名单：出现第四个键就拒掉，不猜用户意图。
 
 ## 期望状态，不是增量补丁

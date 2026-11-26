@@ -88,6 +88,16 @@ docker logs --tail 50 metacubexd-prod
 - 出口不通 —— 容器拉订阅走 `proxy: DIRECT`，需要宿主机本身能出去。
 - 间隔太长 —— `interval: 21600`，改完 URL 要等或手动刷新。
 
+手动刷新 provider（节点是内核自己拉的，不需要外部脚本）：
+
+```bash
+# 面板 provider 页面点刷新，或 path 留空按原 URL 重拉
+curl -X PUT http://127.0.0.1:9090/providers/proxies/active \
+     -H "Authorization: Bearer $CLASH_SECRET"
+```
+
+缓存文件是 `data/airport.yaml`（相对 `data/` 的 `path`），内核自己写，删掉也会重拉；不要去编辑它。
+
 ### DNS 不通
 
 `verify` 报 `DNS +notcp 查询失败`：
