@@ -80,24 +80,24 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/AdditionalFilter.list
     path: ./ruleset/AdditionalFilter.list
 rules:
-- DOMAIN-SUFFIX,antigravity.google,美国节点
-- DOMAIN-SUFFIX,antigravity.google.com,美国节点
-- DOMAIN,accounts.google.com,美国节点
-- DOMAIN,oauth2.googleapis.com,美国节点
-- DOMAIN,cloudcode-pa.googleapis.com,美国节点
-- DOMAIN,daily-cloudcode-pa.googleapis.com,美国节点
-- DOMAIN,aicode.googleapis.com,美国节点
-- DOMAIN,businessaicode.googleapis.com,美国节点
-- DOMAIN,generativelanguage.googleapis.com,美国节点
-- DOMAIN,cloudaicompanion.googleapis.com,美国节点
-- DOMAIN,aiplatform.googleapis.com,美国节点
-- DOMAIN,sandbox.googleapis.com,美国节点
-- DOMAIN,www.googleapis.com,美国节点
-- DOMAIN,play.googleapis.com,美国节点
-- DOMAIN,storage.googleapis.com,美国节点
-- DOMAIN-SUFFIX,lh3.googleusercontent.com,美国节点
-- DOMAIN-SUFFIX,antigravity-cli-auto-updater-974169037036.us-central1.run.app,美国节点
-- GEOSITE,google-gemini,美国节点
+- DOMAIN-SUFFIX,antigravity.google,Antigravity
+- DOMAIN-SUFFIX,antigravity.google.com,Antigravity
+- DOMAIN,accounts.google.com,Antigravity
+- DOMAIN,oauth2.googleapis.com,Antigravity
+- DOMAIN,cloudcode-pa.googleapis.com,Antigravity
+- DOMAIN,daily-cloudcode-pa.googleapis.com,Antigravity
+- DOMAIN,aicode.googleapis.com,Antigravity
+- DOMAIN,businessaicode.googleapis.com,Antigravity
+- DOMAIN,generativelanguage.googleapis.com,Antigravity
+- DOMAIN,cloudaicompanion.googleapis.com,Antigravity
+- DOMAIN,aiplatform.googleapis.com,Antigravity
+- DOMAIN,sandbox.googleapis.com,Antigravity
+- DOMAIN,www.googleapis.com,Antigravity
+- DOMAIN,play.googleapis.com,Antigravity
+- DOMAIN,storage.googleapis.com,Antigravity
+- DOMAIN-SUFFIX,lh3.googleusercontent.com,Antigravity
+- DOMAIN-SUFFIX,antigravity-cli-auto-updater-974169037036.us-central1.run.app,Antigravity
+- GEOSITE,google-gemini,Antigravity
 - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
 - GEOIP,private,DIRECT,no-resolve
 - DOMAIN-SUFFIX,discord.com,选择代理
@@ -6454,6 +6454,11 @@ proxy-groups:
   - 美国节点
   - 手动选择
   - DIRECT
+- name: Antigravity
+  type: select
+  proxies:
+  - 美国节点
+  - 手动选择
 - name: 中国大陆 AI
   icon: https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.102.0/icons/deepseek-color.svg
   type: select
@@ -6783,6 +6788,7 @@ proxy-groups:
   - 手动选择
   - 静态资源
   - AI服务
+  - Antigravity
   - 中国大陆 AI
   - 加密货币
   - 金融服务
