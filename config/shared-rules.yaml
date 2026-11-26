@@ -6477,6 +6477,10 @@ proxy-groups:
   type: select
   proxies:
   - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 新加坡节点
+  - 日本节点
   - 手动选择
 - name: 中国大陆 AI
   icon: https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.102.0/icons/deepseek-color.svg
